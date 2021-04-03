@@ -1,0 +1,11 @@
+<aside style="@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');">
+  <b>
+    <h3 style="font-family: 'Roboto', sans-serif;">Doors - Current Status</h3>
+    <div> Door 1: </div>
+    <div *ngIf="door1Status" style="color:green">Open</div>
+    <div *ngIf="!door1Status" style="color:red">Closed</div>
+    <div> Door 2: </div>
+    <div *ngIf="door2Status" style="color:green">Open</div>
+    <div *ngIf="!door2Status" style="color:red">Closed</div>
+  </b>
+</aside>
