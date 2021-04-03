@@ -2,5 +2,10 @@
   <p>Please Operate Door #2 Open/Close</p>
 </div>
 <div>
-  <mat-slide-toggle [(ngModel)]="door2Status" (change)="toggleStatus()">Open Door</mat-slide-toggle>
+  <mat-slide-toggle [(ngModel)]="door2Status" (change)="toggleStatus()" (change)="toggleShowDiv()">Open Door</mat-slide-toggle>
 </div>
+<div class="wrapper">
+  <div [@slideInOut]="animationState" style="height: 500px; background-color: red;">
+  <b><h3>Door #2</h3></b></div>
+</div>
+

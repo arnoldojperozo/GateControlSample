@@ -11,17 +11,18 @@ export class AsideComponent implements OnInit {
 
   door1Status = false;
   door2Status = false;
-  subscription: Subscription;
+  subscription1: Subscription;
+  subscription2: Subscription;
 
   constructor(private dataService: DataService) {
-    this.subscription = this.dataService.getStatusDoor1().subscribe(status => {
+    this.subscription1 = this.dataService.getStatusDoor1().subscribe(status => {
       if (status) {
         this.door1Status = status;
       } else {
         this.door1Status = false;
       }
     });
-    this.subscription = this.dataService.getStatusDoor2().subscribe(status => {
+    this.subscription2 = this.dataService.getStatusDoor2().subscribe(status => {
       if (status) {
         this.door2Status = status;
       } else {
@@ -31,6 +32,12 @@ export class AsideComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.subscription1.unsubscribe();
+    this.subscription2.unsubscribe();
   }
 
 }
